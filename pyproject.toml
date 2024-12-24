@@ -19,7 +19,7 @@ dev-dependencies = [
 ]
 
 [project.scripts]
-gendiff  = "gendiff.scripts.gendiff:main"
+gendiff  = "gendiff.scripts.parser:main"
 
 [build-system]
 requires = ["hatchling"]
