@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-12-x64 
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -21,7 +21,7 @@ jobs:
         run: |
           make check
       - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v9.0.0
+      - uses: paambaati/codeclimate-action@v10.0.0  
         if: github.ref_name == 'main'
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
