@@ -2,11 +2,13 @@ import os
 import json
 import yaml
 
+
 BASE_DIR = "tests/fixtures"  
+
 
 def read_file(file):
     if not os.path.isabs(file):  
-     file = os.path.join(BASE_DIR, file)
+        file = os.path.join(BASE_DIR, file)
 
     if not os.path.exists(file):  
         raise FileNotFoundError(f"File '{file}' not found.")

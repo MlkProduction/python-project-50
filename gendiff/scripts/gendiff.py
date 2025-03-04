@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
-import json
 from gendiff.scripts.read_files import read_file
-from gendiff.formatters.formatter_json import json_formatter
-from gendiff.formatters.plain import formatter_plain
-from gendiff.formatters.stylish import format_diff
 from gendiff.scripts.gendiff_diff import compare_dicts
+from gendiff.formatters.stylish import format_diff
+from gendiff.formatters.plain import formatter_plain
+from gendiff.formatters.formatter_json import json_formatter
+
 
 FORMATTERS = {
-    'stylish' : format_diff,
-    'plain' : formatter_plain,
-    'json' : json_formatter
+    'stylish': format_diff,
+    'plain': formatter_plain,
+    'json': json_formatter
     }
 
-def generate_diff(file_path1, file_path2, formatter = 'stylish'):
+
+def generate_diff(file_path1, file_path2, formatter='stylish'):
 
     dict1 = read_file(file_path1)
 
@@ -24,6 +25,6 @@ def generate_diff(file_path1, file_path2, formatter = 'stylish'):
     elif formatter == 'plain':
         return formatter_plain(diff)
     elif formatter == 'json':
-       return json_formatter(diff)
+        return json_formatter(diff)
 
 

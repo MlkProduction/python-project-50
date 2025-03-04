@@ -12,7 +12,6 @@ def format_value(value):
     elif isinstance(value, str):
         return f"'{value}'"
 
-
     return value
 
 
@@ -24,10 +23,13 @@ def formatter_plain(all_dict, path=''):
         if flag == 'removed':
             result.append(f"Property '{full_path}' was removed")
         elif flag == 'added':
-            result.append(f"Property '{full_path}' was added with value: {format_value(value)}")
+            result.append(f"Property '{full_path}' was added with value: "
+                          f"{format_value(value)}")
+            
         elif flag == 'changed':
             old_value, new_value = value
-            result.append(f"Property '{full_path}' was updated. From {format_value(old_value)} to {format_value(new_value)}")
+            result.append(f"Property '{full_path}' was updated. "
+            f"From {format_value(old_value)} to {format_value(new_value)}")
         elif flag == 'nested':
             result.append(formatter_plain(value, full_path)) 
 

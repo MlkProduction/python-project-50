@@ -44,7 +44,8 @@ def format_value(value, depth):
         lines = ['{']
         for key, val in value.items():
             formated_value = format_value(val, depth + 1)
-            lines = add_indent_and_format(depth, lines, prefix, key, formated_value)
+            lines = add_indent_and_format(depth, lines, prefix, 
+                                          key, formated_value)
         indent = ' ' * (4 * (depth - 1))
         lines.append(f"{indent}}}")
         return '\n'.join(lines)
@@ -53,7 +54,7 @@ def format_value(value, depth):
     elif value is None:
         return 'null'
     elif isinstance(value, str):
-        return value.strip() if not value.strip() else value.rstrip()
+        return value if value.strip() else ''  # Удаляем пустой пробел
     return str(value)
 
 
