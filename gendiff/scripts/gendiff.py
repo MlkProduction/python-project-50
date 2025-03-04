@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-from gendiff.scripts.read_files import read_file
-from gendiff.scripts.gendiff_diff import compare_dicts
-from gendiff.formatters.stylish import format_diff
-from gendiff.formatters.plain import formatter_plain
 from gendiff.formatters.formatter_json import json_formatter
-
+from gendiff.formatters.plain import formatter_plain
+from gendiff.formatters.stylish import format_diff
+from gendiff.scripts.gendiff_diff import compare_dicts
+from gendiff.scripts.read_files import read_file
 
 FORMATTERS = {
     'stylish': format_diff,
