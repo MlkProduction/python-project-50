@@ -1,20 +1,20 @@
 import pytest
 
-from gendiff.scripts.gendiff import generate_diff
+from gendiff.generate_diff import generate_diff
 
 
 @pytest.mark.parametrize("file1, file2, formatter, expected", [
-    ("file1.json", "file2.json", 'stylish',
+    ("tests/fixtures/file1.json", "tests/fixtures/file2.json", 'stylish',
      "tests/fixtures/correct_result.txt"),
-    ("file1.json", "file2.json", 'json',
+    ("tests/fixtures/file1.json", "tests/fixtures/file2.json", 'json',
      "tests/fixtures/correct_result.json"),
-    ("new_file1.json", "new_file2.json", 'stylish',
-     "tests/fixtures/stylish_result.txt"),
-    ("new_file1.json", "new_file2.json", 'plain',
+    ("tests/fixtures/new_file1.json", "tests/fixtures/new_file2.json", 
+     'stylish', "tests/fixtures/stylish_result.txt"),
+    ("tests/fixtures/new_file1.json", "tests/fixtures/new_file2.json", 'plain',
      "tests/fixtures/result_plain.txt"),
-    ("new_file1.json", "new_file2.json", 'json',
+    ("tests/fixtures/new_file1.json", "tests/fixtures/new_file2.json", 'json',
      "tests/fixtures/result.json"),
-    ("file1path.yml", "file2path.yml", 'stylish',
+    ("tests/fixtures/file1path.yml", "tests/fixtures/file2path.yml", 'stylish',
      "tests/fixtures/stylish_result.txt")
 ])
 def test_generate_diff(file1, file2, formatter, expected):
